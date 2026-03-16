@@ -1,0 +1,992 @@
+[
+    {
+        "id": "ba279a119bc1fd54",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bc05b2da7512133f",
+        "type": "debug",
+        "z": "ba279a119bc1fd54",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d7f685a160e57d6a",
+        "type": "inject",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "hello",
+        "payloadType": "str",
+        "x": 50,
+        "y": 100,
+        "wires": [
+            [
+                "fddd977f87be15b6"
+            ]
+        ]
+    },
+    {
+        "id": "c237836b326cbbfd",
+        "type": "mqtt in",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/#",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2b9cb66a384ab351",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 180,
+        "wires": [
+            [
+                "bc05b2da7512133f"
+            ]
+        ]
+    },
+    {
+        "id": "fddd977f87be15b6",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/test/temp",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 250,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d81ebb8abbf49e60",
+        "type": "ui_gauge",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "group": "0b8e09394ab30c55",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 320,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a06bf15ee281ccdf",
+        "type": "ui_gauge",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "group": "9b3cefd3e271b0f4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 110,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "2fbb8e7aff440e1b",
+        "type": "mqtt in",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/temperature",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2b9cb66a384ab351",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "a06bf15ee281ccdf"
+            ]
+        ]
+    },
+    {
+        "id": "67bf37b4801851ca",
+        "type": "mqtt in",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/humidity",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2b9cb66a384ab351",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 360,
+        "wires": [
+            [
+                "d81ebb8abbf49e60"
+            ]
+        ]
+    },
+    {
+        "id": "6e592032eb6db3f5",
+        "type": "ui_gauge",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "group": "ac439d0aca053c46",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Light",
+        "label": "lux",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "4095",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 570,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "a6e16349c5be3c55",
+        "type": "ui_gauge",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "group": "c0cb0cb4c8230dca",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Distance",
+        "label": "cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 120,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "ccce1bd42cbdaeb3",
+        "type": "mqtt in",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/light",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2b9cb66a384ab351",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 610,
+        "y": 360,
+        "wires": [
+            [
+                "6e592032eb6db3f5"
+            ]
+        ]
+    },
+    {
+        "id": "6cb39cab7e7d0869",
+        "type": "mqtt in",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/distance",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2b9cb66a384ab351",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 190,
+        "y": 520,
+        "wires": [
+            [
+                "a6e16349c5be3c55"
+            ]
+        ]
+    },
+    {
+        "id": "894f1afd285bba77",
+        "type": "mqtt in",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/motion",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "2b9cb66a384ab351",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 560,
+        "y": 520,
+        "wires": [
+            [
+                "80eac43ece2d1490"
+            ]
+        ]
+    },
+    {
+        "id": "01424c80f13ff658",
+        "type": "ui_text",
+        "z": "ba279a119bc1fd54",
+        "group": "c69835c4425728cd",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Motion",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 770,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "80eac43ece2d1490",
+        "type": "function",
+        "z": "ba279a119bc1fd54",
+        "name": "function 1",
+        "func": "if (msg.payload == 1) {\n    msg.payload = \"Motion Detected\";\n} else {\n    msg.payload = \"No Motion\";\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 700,
+        "y": 460,
+        "wires": [
+            [
+                "01424c80f13ff658"
+            ]
+        ]
+    },
+    {
+        "id": "bb09737d337aaab1",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 290,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "5f63e71d89170b70",
+        "type": "function",
+        "z": "ba279a119bc1fd54",
+        "name": "function 2",
+        "func": "if (msg.payload == true || msg.payload == \"true\" || msg.payload == 1 || msg.payload == \"1\") {\n    msg.payload = 1;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 600,
+        "wires": [
+            [
+                "bb09737d337aaab1",
+                "7c6fc5226f404805"
+            ]
+        ]
+    },
+    {
+        "id": "37f32c81f13937c4",
+        "type": "ui_switch",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "LED Control",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 190,
+        "y": 600,
+        "wires": [
+            [
+                "5f63e71d89170b70"
+            ]
+        ]
+    },
+    {
+        "id": "7c6fc5226f404805",
+        "type": "debug",
+        "z": "ba279a119bc1fd54",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "99d807cf6e75cb29",
+        "type": "ui_switch",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Buzzer Control",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 720,
+        "y": 600,
+        "wires": [
+            [
+                "71914037f461e164"
+            ]
+        ]
+    },
+    {
+        "id": "2783eb6d3da3a480",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/buzzer",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 870,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "71914037f461e164",
+        "type": "function",
+        "z": "ba279a119bc1fd54",
+        "name": "function 3",
+        "func": "if (msg.payload == true || msg.payload == \"true\" || msg.payload == 1 || msg.payload == \"1\") {\n    msg.payload = 1;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 600,
+        "wires": [
+            [
+                "2783eb6d3da3a480"
+            ]
+        ]
+    },
+    {
+        "id": "1d2be5e72e5e5ccd",
+        "type": "ui_switch",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Relay Control",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 200,
+        "y": 780,
+        "wires": [
+            [
+                "8579d4e6786492e7"
+            ]
+        ]
+    },
+    {
+        "id": "8579d4e6786492e7",
+        "type": "function",
+        "z": "ba279a119bc1fd54",
+        "name": "function 4",
+        "func": "if (msg.payload == true || msg.payload == \"true\" || msg.payload == 1 || msg.payload == \"1\") {\n    msg.payload = 1;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 780,
+        "wires": [
+            [
+                "eb2c29f9b7a1c646"
+            ]
+        ]
+    },
+    {
+        "id": "eb2c29f9b7a1c646",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/relay",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 300,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "2744aa7a2d1f682c",
+        "type": "ui_slider",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Servo Angle",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": 1,
+        "className": "",
+        "x": 710,
+        "y": 780,
+        "wires": [
+            [
+                "71031fe7a9c745e2"
+            ]
+        ]
+    },
+    {
+        "id": "71031fe7a9c745e2",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/servo",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 940,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "904fd6ba4e1b1217",
+        "type": "ui_switch",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Auto Mode",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 730,
+        "y": 860,
+        "wires": [
+            [
+                "a92bccb94a628f21"
+            ]
+        ]
+    },
+    {
+        "id": "a92bccb94a628f21",
+        "type": "function",
+        "z": "ba279a119bc1fd54",
+        "name": "function 5",
+        "func": "if (msg.payload == true || msg.payload == \"true\" || msg.payload == 1 || msg.payload == \"1\") {\n    msg.payload = 1;\n} else {\n    msg.payload = 0;\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 860,
+        "wires": [
+            [
+                "a6a33476552eea16"
+            ]
+        ]
+    },
+    {
+        "id": "a6a33476552eea16",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/mode",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 860,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "aaea5aacb2fa4f8e",
+        "type": "ui_slider",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Temp Threshold",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "50",
+        "step": 1,
+        "className": "",
+        "x": 680,
+        "y": 1000,
+        "wires": [
+            [
+                "c7d12bd0d9840dcb"
+            ]
+        ]
+    },
+    {
+        "id": "171f8dbe8cf95aad",
+        "type": "ui_slider",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Light Threshold",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "4095",
+        "step": 1,
+        "className": "",
+        "x": 1060,
+        "y": 1000,
+        "wires": [
+            [
+                "7a494f9b99f99ed0"
+            ]
+        ]
+    },
+    {
+        "id": "009b52950a4002e5",
+        "type": "ui_slider",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "label": "Distance Threshold",
+        "tooltip": "",
+        "group": "68a32043a00c34e4",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "all",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "400",
+        "step": 1,
+        "className": "",
+        "x": 890,
+        "y": 1100,
+        "wires": [
+            [
+                "add492e266597ae4"
+            ]
+        ]
+    },
+    {
+        "id": "c7d12bd0d9840dcb",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/temp_threshold",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 830,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "7a494f9b99f99ed0",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/light_threshold",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 1170,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "add492e266597ae4",
+        "type": "mqtt out",
+        "z": "ba279a119bc1fd54",
+        "name": "",
+        "topic": "rana7/iot/control/distance_threshold",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2b9cb66a384ab351",
+        "x": 1020,
+        "y": 1160,
+        "wires": []
+    },
+    {
+        "id": "2b9cb66a384ab351",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "0b8e09394ab30c55",
+        "type": "ui_group",
+        "name": "Sensors",
+        "tab": "19d9927ceb9865a8",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9b3cefd3e271b0f4",
+        "type": "ui_group",
+        "name": "Sensors",
+        "tab": "6b6d53fc1359947e",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "ac439d0aca053c46",
+        "type": "ui_group",
+        "name": "sensors",
+        "tab": "860848db71407e62",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c0cb0cb4c8230dca",
+        "type": "ui_group",
+        "name": "sensors",
+        "tab": "ba20a12f07634262",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c69835c4425728cd",
+        "type": "ui_group",
+        "name": "sensors",
+        "tab": "d1ccd24436c4fde0",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "68a32043a00c34e4",
+        "type": "ui_group",
+        "name": "Controls",
+        "tab": "2082b8d2123d19a3",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "19d9927ceb9865a8",
+        "type": "ui_tab",
+        "name": "IoT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "6b6d53fc1359947e",
+        "type": "ui_tab",
+        "name": "IoT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "860848db71407e62",
+        "type": "ui_tab",
+        "name": "IoT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ba20a12f07634262",
+        "type": "ui_tab",
+        "name": "IoT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "d1ccd24436c4fde0",
+        "type": "ui_tab",
+        "name": "IoT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "2082b8d2123d19a3",
+        "type": "ui_tab",
+        "name": "IoT Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "de1e733e418c3c46",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]
